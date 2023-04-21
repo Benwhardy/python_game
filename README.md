@@ -2,8 +2,6 @@
 
 This program is a scrolling 2D shooter game built with Python and Pygame. 
 The objective of the game is to get across the map defeating enemies.
-I had hoped to add more enemies and change more of the animations, but I
-haven't been able to get that to work yet.
 
 ## Technologies Used
 
@@ -25,3 +23,8 @@ There is an issue within the game where sometimes the enemies will not turn to f
 ## Resource
 
 The online pygame tutorial from Coding with Russ was integral to this project.
+
+I was unable to add all of the functionality that I had originally planned. However, this project
+did introduce a lot of new concepts that I had not yet seen, and presented a steep challenge at points.
+I am looking forward to getting a deeper understanding of game design as a whole and hope to improve upon
+this game in the future.
