@@ -21,7 +21,7 @@ class Button:
                 self.clicked = True
 
         if pygame.mouse.get_pressed()[0] == 0:
-                self.clicked = False
+            self.clicked = False
 
         surface.blit(self.image, (self.rect.x, self.rect.y))
 

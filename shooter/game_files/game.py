@@ -1,4 +1,3 @@
-import sys
 import os
 import random
 import csv
@@ -298,6 +297,7 @@ class World:
     def process_data(self, data):
         self.level_length = len(data[0])  # how wide the level is
         # iterate through each value in level data
+        # to link a png from images
         for y, row in enumerate(data):
             for x, tile in enumerate(row):
                 if tile >= 0:
@@ -497,7 +497,7 @@ class Grenade(pygame.sprite.Sprite):
             self.kill()
             explosion = Explosion(self.rect.x, self.rect.y, 2)
             explosion_group.add(explosion)
-            # damage nearby Soldiers
+            # damage nearby Soldiers (abs accounts for the left and right of the grenade)
             if abs(self.rect.centerx - player.rect.centerx) < TILE_SIZE * 2 and \
                     abs(self.rect.centery - player.rect.centery) < TILE_SIZE * 2:
                 player.health -= 50
@@ -579,11 +579,13 @@ exit_group = pygame.sprite.Group()
 
 # create empty tile lists
 world_data = []
-for row in range(ROWS):
+for row in range(ROWS):  # adds a -1 to each spot in each row
     r = [-1] * COLS
     world_data.append(r)
 # load level data to create world
-with open('../level1_data.csv', newline='') as csvfile:
+with open('../../level1_data.csv', newline='') as csvfile:
+    # loads a number into the lists within world_data
+    # that corresponds to a tile from images
     reader = csv.reader(csvfile, delimiter=',')
     for x, row in enumerate(reader):
         for y, tile in enumerate(row):
@@ -691,9 +693,7 @@ while run:
     else:
         draw_bg()
         world.draw()
-
         player_stats()
-
         update_and_draw_groups()
 
         if start_intro:
